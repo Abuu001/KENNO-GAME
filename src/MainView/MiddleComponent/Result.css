@@ -1,0 +1,14 @@
+.Result{
+   display: flex;
+   flex-direction: column;
+   align-self: flex-start;
+}
+.Result__Row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.Result__Icon:hover{
+    cursor: pointer;
+}

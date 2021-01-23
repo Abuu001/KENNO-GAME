@@ -1,0 +1,12 @@
+.TopComponent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;    
+    align-items: center;
+}
+
+@media  (max-width: 512px) {
+    .TopComponent{
+        flex-direction: column;
+    }
+}

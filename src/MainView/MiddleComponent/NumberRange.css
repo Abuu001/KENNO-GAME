@@ -1,0 +1,47 @@
+.NumberRange__Row{
+    display: flex;
+    justify-content:space-around;
+    align-items:flex-start;
+   flex-wrap: wrap;
+}
+.NumberRange{
+    background-color: #ccc;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40%;
+    border-radius: 10px;
+}
+.Number__Button__Row{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 7px;
+}
+.Number_Button{
+    background-color: #ffffff;
+    height: 33.5152px;
+    width:33.5152px ;
+    font-weight: 800;
+    border-radius: 25px;
+    margin-right: 14px;
+    outline:  none !important;
+}
+span{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+@media  (max-width: 512px) {
+    .NumberRange{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .NumberRange__Row{
+        flex-direction: column;
+        margin-top: 14px;
+    }
+
+}

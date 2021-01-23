@@ -1,0 +1,24 @@
+.FootBar{
+    background-color: #ffffff;
+    -webkit-box-shadow: 3px 3px 11px 8px #ffffff; 
+    box-shadow: 3px 3px 11px 8px #ffffff;
+    width: 79%;
+    height: 90px;
+    padding-top: 10px;
+    margin-top: 34px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 9px;
+}
+.Footbar__Btn{
+    cursor: wait;
+    height: 84px;
+}
+.Footbar_txt{
+    font-size: 23px;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+}
+.Footbar_txt_Amount{
+    font-weight: 500;
+}
