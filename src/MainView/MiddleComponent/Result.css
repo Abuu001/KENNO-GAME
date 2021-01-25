@@ -1,7 +1,13 @@
 .Result{
    display: flex;
    flex-direction: column;
-   align-self: flex-start;
+   align-items: center;
+   /* align-self: flex-start; */
+   width:   384px;
+   height: 55px;
+   border: 2px solid red;
+   position: relative;
+   top: 75px;
 }
 .Result__Row{
     display: flex;
@@ -9,6 +15,28 @@
     align-items: center;
     justify-content: space-between;
 }
+/* .Result__Row:nth-child(6):after{
+    background-color: orange;
+
+    content:'</br>\A';
+    white-space: pre;
+} */
 .Result__Icon:hover{
     cursor: pointer;
+}
+.Result_Row_InputField{
+    background-color: #ccc !important;
+    border-radius: 25px !important;
+    height: 33.5152px !important;
+    width:33.5152px  !important;
+    font-weight: 800 !important;
+    margin-right: 14px !important;
+    outline-color: green !important;
+    border: 2px solid #198754 !important; ;
+    color: black !important;
+}
+@media  (max-width: 512px) {
+    .Result{
+        width: 284px;
+    }
 }
