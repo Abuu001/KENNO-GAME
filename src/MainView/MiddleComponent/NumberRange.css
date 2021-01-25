@@ -1,7 +1,7 @@
 .NumberRange__Row{
     display: flex;
     justify-content:space-around;
-    align-items:flex-start;
+    align-items: flex-start;
    flex-wrap: wrap;
 }
 .NumberRange{
@@ -28,11 +28,51 @@
     margin-right: 14px;
     outline:  none !important;
 }
+.Number_Button > span >a{
+text-decoration: none;
+color:#198754 ;
+}
+
+.Number_Button > span >a:active{
+    text-decoration: none;
+    color: red;
+}
+
+.Number_Button__Disable {
+    cursor: not-allowed !important;
+    color: #c0c0c0;
+    height: 33.5152px;
+    width:33.5152px ;
+    font-weight: 800;
+    border-radius: 25px;
+    margin-right: 14px;
+    background-color: #ffffff;
+    pointer-events: none !important;
+}
 span{
    display: flex;
    align-items: center;
    justify-content: center;
 }
+.NumberRange__Result__completed{
+    display: flex;
+    justify-content: center;
+    height: 245px;
+    width: 420px;
+    border: 4px dotted green;
+    border-radius: 25px;
+}
+
+.NumberRange__Result__Notcompleted{
+    display: flex;
+    justify-content: center;
+    height: 245px;
+    width: 420px;
+    border: 4px dotted red;
+    border-radius: 25px;
+}
+
+
 
 @media  (max-width: 512px) {
     .NumberRange{
@@ -42,6 +82,16 @@ span{
     .NumberRange__Row{
         flex-direction: column;
         margin-top: 14px;
+    }
+    .NumberRange__Result__completed{
+       width: 290px;
+    }
+    .NumberRange__Result__Notcompleted{
+        width: 290px;
+    }
+    .Number_Button{
+        margin-right: 7px! important;
+        flex-wrap: wrap !important;
     }
 
 }

@@ -1,11 +1,11 @@
 import React ,{useContext}from 'react'
 import "./Stake.css"
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever'; 
+// import DeleteForeverIcon from '@material-ui/icons/DeleteForever'; 
 import {KennoContext} from "../../kennoContextAPI/KennoContextAPI"
 
 function Stake() {
     const [totalMoney,setTotalMoney]=useContext(KennoContext)
-
+ 
     const  incrementHandler=()=>{
         setTotalMoney(+totalMoney+1)
     }
@@ -16,7 +16,7 @@ function Stake() {
 
     return (
         <div>
-            <DeleteForeverIcon fontSize="large"  className="Result__Icon"  color="error" />
+            {/* <DeleteForeverIcon fontSize="large"  className="Result__Icon"  color="error" /> */}
             <p style={{fontSize : 18 ,fontWeight: 500}}>Stake Per Line</p>
             <div className="Stake">
                 <button type="button" className={`${totalMoney >= 250 ?  `btn btn-success disable__stake__btn` :   `btn btn-success  Stake__btn` }`} onClick={incrementHandler}>+</button>

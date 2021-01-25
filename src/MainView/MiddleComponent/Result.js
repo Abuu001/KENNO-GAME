@@ -1,39 +1,37 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import AutorenewIcon from '@material-ui/icons/Autorenew';
 import CloseIcon from '@material-ui/icons/Close';
+import {StackRangeContext} from "../../kennoContextAPI/StackRangeAPI"
 import "./Result.css"
 
-function Result({lastIndexPosition}) {
+function Result({numbers,setNumbers}) {
 
-    const deleteHandler=(id)=>{
-        console.log(id + "this is id");
-        console.log(lastIndexPosition +"is idmain");
+    const [range] =useContext(StackRangeContext)
+   
+    const deleteHandler=()=>{
+        setNumbers([])
     }
+
+    const breakLine = range.length >= 5 ?  <p>mhh</p>: <p>heyyy</p>;
+ 
+    const noOfRoom = numbers.map((row,index)=>{
+        return(
+            <div  className='Result__Row'   key={index} >  
+                {/* <button type="button" className="btn btn-outline-success  Number_Button "><span>{stakeData}</span></button> */}
+                <input type="text" value={row}   className="Result_Row_InputField" disabled/>
+                {/* {breakLine} */}   
+            </div>
+        )
+    })
 
     return (
         <div  className="Result">
-            <div  className="Result__Row">
+            <div className="Number__Button__Row">
                 <AutorenewIcon fontSize="large" color="action" className="Result__Icon"/>
-                <div>
-                    <div className="Number__Button__Row">
-                            <button type="button" className="btn btn-outline-success  Number_Button"><span>43</span></button>
-                            <button type="button" className="btn btn-outline-success  Number_Button"><span>44</span></button>
-                            <button type="button" className="btn btn-outline-success  Number_Button"><span>45</span></button>
-                            <button type="button" className="btn btn-outline-success  Number_Button"><span>46</span></button>
-                            <button type="button" className="btn btn-outline-success  Number_Button"><span>47</span></button>
-                        </div>
-
-                        <div className="Number__Button__Row">
-                            <button type="button" className="btn btn-outline-success  Number_Button"><span>43</span></button>
-                            <button type="button" className="btn btn-outline-success  Number_Button"><span>44</span></button>
-                            <button type="button" className="btn btn-outline-success  Number_Button"><span>45</span></button>
-                            <button type="button" className="btn btn-outline-success  Number_Button"><span>46</span></button>
-                            <button type="button" className="btn btn-outline-success  Number_Button"><span>47</span></button>
-                        </div>
-                    </div>
-                    <CloseIcon  fontSize="large" color="error"  className="Result__Icon"   onClick={(e)=>deleteHandler(e)}/> 
+                {noOfRoom}
+                <CloseIcon  fontSize="large" color="error"  className="Result__Icon"   onClick={()=>deleteHandler()}/> 
             </div>
-                <hr></hr>
+            <hr></hr>
 
         </div>
     )
