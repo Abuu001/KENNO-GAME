@@ -4,7 +4,7 @@ import "./RangeStack.css"
 
 function RangeStack() {
 
-    const [range,setRange] =useContext(StackRangeContext)
+    const [_,setRange] =useContext(StackRangeContext)
 
     const optionStake=(id)=>{       
 

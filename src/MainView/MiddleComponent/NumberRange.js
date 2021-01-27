@@ -1,4 +1,4 @@
-import React,{useState,useContext} from 'react'
+import React,{useState,useContext,useEffect} from 'react'
 import "./NumberRange.css"
 import Result from "./Result"
 import {StackRangeContext} from "../../kennoContextAPI/StackRangeAPI"
@@ -9,7 +9,8 @@ function NumberRange() {
 
     const [range,setRange] =useContext(StackRangeContext)
     const [numbers,setNumbers]=useState([])
-    const [disableBtn,setDisableBtn]=useState(true)
+    const [disableBtn,setDisableBtn]=useState(false)
+    const [time,setTime]=useState(false)
  
     const stakeNumbers=(num)=>{
 
@@ -27,6 +28,16 @@ function NumberRange() {
         }
     } 
 
+    useEffect(()=>{
+        //sets a random time to display the results
+        const randTme = Math.floor(Math.random() * (6 - 3) + 3);
+        const timer=  setTimeout(()=>{
+            //    setTime(!false)
+            setTime(prevTime=> !prevTime)
+            },randTme* 1000);
+            return () => clearTimeout(timer);
+    },[disableBtn])
+ 
     const resetStakeHandler=()=>{
        setNumbers([])
        setRange(["a","b"])
@@ -112,7 +123,7 @@ function NumberRange() {
                         <p>You have selected : {range.length+1} slots</p>
                         <p>{numbers.length}/{range.length+1} completed <CheckIcon fontSize="large" color={`${numbers.length === range.length+1 ? `primary` : `error`}`}/> <DeleteForeverIcon fontSize="large"  className="Result__Icon"  color="error"  onClick={resetStakeHandler}/>  </p>     
                         <div className={`${numbers.length === range.length+1 ?  "NumberRange__Result__completed" :  "NumberRange__Result__Notcompleted" }`}>
-                            <Result  numbers={numbers}  setNumbers={setNumbers} disableBtn={disableBtn} setDisableBtn={setDisableBtn}/>
+                            <Result  numbers={numbers}  setNumbers={setNumbers} disableBtn={disableBtn} setDisableBtn={setDisableBtn} time={time} />
                         </div>
                    </div>
         </div>
