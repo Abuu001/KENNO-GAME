@@ -6,10 +6,12 @@ import {KennoContext} from "../../kennoContextAPI/KennoContextAPI"
 function Stake() {
     const [totalMoney,setTotalMoney]=useContext(KennoContext)
  
+    // increments the total money +1
     const  incrementHandler=()=>{
         setTotalMoney(+totalMoney+1)
     }
 
+   // decrements the total money -1
     const decrementHandler=()=>{
         setTotalMoney(+totalMoney-1)
     }

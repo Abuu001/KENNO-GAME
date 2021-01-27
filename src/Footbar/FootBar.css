@@ -22,3 +22,15 @@
 .Footbar_txt_Amount{
     font-weight: 500;
 }
+.close{
+    text-decoration: none   ;
+    font-size: 30px;
+    color: red;
+    flex: .03   ;
+    height: 33.5152px;
+    width:33.5152px ;
+    border-radius: 25px;
+}
+#closeModal{
+    display: flex;
+}

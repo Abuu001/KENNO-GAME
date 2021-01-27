@@ -2,10 +2,8 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   /* align-self: flex-start; */
    width:   384px;
    height: 55px;
-   border: 2px solid red;
    position: relative;
    top: 75px;
 }
@@ -15,12 +13,11 @@
     align-items: center;
     justify-content: space-between;
 }
-/* .Result__Row:nth-child(6):after{
-    background-color: orange;
+.Result__Row > input[type=text]{
+  padding-left: 5px;
+  box-sizing: border-box;
+} 
 
-    content:'</br>\A';
-    white-space: pre;
-} */
 .Result__Icon:hover{
     cursor: pointer;
 }
@@ -35,8 +32,20 @@
     border: 2px solid #198754 !important; ;
     color: black !important;
 }
+.Result__Score__btn:hover{
+    cursor: not-allowed !important;
+}
+.Number__Row__Modal{
+    display: flex;
+    align-items: center;
+   flex-direction: column;
+}
 @media  (max-width: 512px) {
     .Result{
         width: 284px;
+        top: 25px;
+    }
+    .Result__Score{
+        top: 20px;
     }
 }

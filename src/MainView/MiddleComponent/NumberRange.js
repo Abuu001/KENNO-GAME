@@ -3,11 +3,13 @@ import "./NumberRange.css"
 import Result from "./Result"
 import {StackRangeContext} from "../../kennoContextAPI/StackRangeAPI"
 import CheckIcon from '@material-ui/icons/Check';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever'; 
 
 function NumberRange() {
 
-    const [range] =useContext(StackRangeContext)
+    const [range,setRange] =useContext(StackRangeContext)
     const [numbers,setNumbers]=useState([])
+    const [disableBtn,setDisableBtn]=useState(true)
  
     const stakeNumbers=(num)=>{
 
@@ -17,6 +19,17 @@ function NumberRange() {
             numbers.push(num)
             setNumbers([...numbers])
         }
+
+
+        //to enable || disable the results button
+        if(numbers.length === range.length+1){
+            setDisableBtn(prevState=> !prevState)
+        }
+    } 
+
+    const resetStakeHandler=()=>{
+       setNumbers([])
+       setRange(["a","b"])
     }
 
     return (
@@ -86,7 +99,7 @@ function NumberRange() {
                     </div>
 
                     <div className="Number__Button__Row">
-                        <button type="button" className={`${numbers.length > range.length ?  `btn btn-outline-success  Number_Button__Disable ` : `btn btn-outline-success  Number_Button` }`} onClick={()=>stakeNumbers(43)}><span><a href="#">43</a></span></button>
+                        <button type="button" className={`${numbers.length > range.length ?  `btn btn-outline-success  Number_Button__Disable ` : `btn btn-outline-success  Number_Button` }`} onClick={()=>stakeNumbers(43)}><span>43</span></button>
                         <button type="button" className={`${numbers.length > range.length ?  `btn btn-outline-success  Number_Button__Disable ` : `btn btn-outline-success  Number_Button` }`} onClick={()=>stakeNumbers(44)}><span>44</span></button>
                         <button type="button" className={`${numbers.length > range.length ?  `btn btn-outline-success  Number_Button__Disable ` : `btn btn-outline-success  Number_Button` }`} onClick={()=>stakeNumbers(45)}><span>45</span></button>
                         <button type="button" className={`${numbers.length > range.length ?  `btn btn-outline-success  Number_Button__Disable ` : `btn btn-outline-success  Number_Button` }`} onClick={()=>stakeNumbers(46)}><span>46</span></button>
@@ -97,9 +110,9 @@ function NumberRange() {
                 </div>
                    <div>
                         <p>You have selected : {range.length+1} slots</p>
-                        <p>{numbers.length}/{range.length+1} completed <CheckIcon fontSize="large" color={`${numbers.length === range.length+1 ? `primary` : `error`}`}/> </p>
+                        <p>{numbers.length}/{range.length+1} completed <CheckIcon fontSize="large" color={`${numbers.length === range.length+1 ? `primary` : `error`}`}/> <DeleteForeverIcon fontSize="large"  className="Result__Icon"  color="error"  onClick={resetStakeHandler}/>  </p>     
                         <div className={`${numbers.length === range.length+1 ?  "NumberRange__Result__completed" :  "NumberRange__Result__Notcompleted" }`}>
-                            <Result  numbers={numbers}  setNumbers={setNumbers}/>
+                            <Result  numbers={numbers}  setNumbers={setNumbers} disableBtn={disableBtn} setDisableBtn={setDisableBtn}/>
                         </div>
                    </div>
         </div>

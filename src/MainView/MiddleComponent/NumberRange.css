@@ -33,7 +33,7 @@ text-decoration: none;
 color:#198754 ;
 }
 
-.Number_Button > span >a:active{
+.Number_Button > span >a:visited{
     text-decoration: none;
     color: red;
 }
@@ -85,9 +85,11 @@ span{
     }
     .NumberRange__Result__completed{
        width: 290px;
+       height: 170px;
     }
     .NumberRange__Result__Notcompleted{
         width: 290px;
+        height: 170px;
     }
     .Number_Button{
         margin-right: 7px! important;
