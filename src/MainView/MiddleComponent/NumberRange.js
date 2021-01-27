@@ -9,7 +9,7 @@ function NumberRange() {
 
     const [range,setRange] =useContext(StackRangeContext)
     const [numbers,setNumbers]=useState([])
-    const [disableBtn,setDisableBtn]=useState(false)
+    const [disableBtn,setDisableBtn]=useState(true)
     const [time,setTime]=useState(false)
  
     const stakeNumbers=(num)=>{
@@ -24,8 +24,10 @@ function NumberRange() {
 
         //to enable || disable the results button
         if(numbers.length === range.length+1){
-            setDisableBtn(prevState=> !prevState)
+            setDisableBtn(!disableBtn)
         }
+        console.log(numbers.length+ "num");
+        console.log(range.length);
     } 
 
     useEffect(()=>{
